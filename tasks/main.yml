@@ -1,0 +1,10 @@
+---
+# tasks file for jenkins
+- name: add repo key
+  apt_key: url=https://jenkins-ci.org/debian/jenkins-ci.org.key state=present
+
+- name: add repo config
+  apt_repository: repo='deb http://pkg.jenkins-ci.org/debian binary/' state=present
+
+- name: install jenkins
+  apt: name=jenkins state=present update_cache=yes
